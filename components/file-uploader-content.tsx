@@ -36,7 +36,7 @@ interface FileUploaderContentProps {
   instructionText: string
 }
 
-export function FileUploaderContent({
+export default function FileUploaderContent({
   toolType,
   acceptedFileTypes,
   maxFiles,

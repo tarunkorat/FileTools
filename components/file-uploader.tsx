@@ -9,9 +9,16 @@ import { compressImage, resizeImage, cropImage, removeBackground, mergePDFs, spl
 import { cn } from "@/lib/utils"
 import dynamic from "next/dynamic"
 
-// Dynamically import browser-dependent components
+// Dynamically import browser-dependent components with loading state
 const FileUploaderContent = dynamic(() => import("./file-uploader-content"), {
   ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center p-8 border-2 border-dashed rounded-lg">
+      <div className="text-center">
+        <p className="text-sm text-muted-foreground">Loading file uploader...</p>
+      </div>
+    </div>
+  ),
 })
 
 interface FileUploaderProps {
